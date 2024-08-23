@@ -1,0 +1,24 @@
+{
+  "name": "json-specification",
+  "version": "1.0.4",
+  "description": "JSON types and validation",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/igrek8/json-specification.git"
+  },
+  "scripts": {
+    "test": "vitest",
+    "build": "tsc --outDir dist"
+  },
+  "devDependencies": {
+    "typescript": "5.5.4",
+    "@vitest/coverage-v8": "2.0.5",
+    "vitest": "2.0.5"
+  }
+}
