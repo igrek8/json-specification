@@ -16,6 +16,8 @@
   - [InvalidJSONArrayError](./src/InvalidJSONArrayError.ts)
   - [InvalidJSONObjectError](./src/InvalidJSONObjectError.ts)
   - [InvalidJSONValueError](./src/InvalidJSONValueError.ts)
+- **Iteration**
+  - [iterateJSONIterable](./src/iterateJSONIterable.ts)
 - **Serialization**
   - [toJSONString](./src/toJSONString.ts)
 - **Deserialization**

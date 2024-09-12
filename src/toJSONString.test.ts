@@ -34,7 +34,19 @@ const tests: Test[] = [
   },
   {
     actual: undefined,
-    expected: new InvalidJSONValueError(undefined),
+    expected: "null",
+  },
+  {
+    actual: { a: undefined },
+    expected: "{}",
+  },
+  {
+    actual: { a: null },
+    expected: '{"a":null}',
+  },
+  {
+    actual: [undefined],
+    expected: "[null]",
   },
   {
     actual: NaN,

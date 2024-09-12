@@ -9,6 +9,7 @@ interface Test {
 
 const tests: Test[] = [
   { actual: { a: { b: { c: 1 } } }, expected: true },
+  { actual: { a: { b: { c: undefined } } }, expected: true },
   { actual: { a: { b: { c: 1n } } }, expected: false },
   { actual: { a: { b: { c: 1n } } }, maxDepth: 1, expected: true },
 ];

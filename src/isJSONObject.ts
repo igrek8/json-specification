@@ -13,6 +13,9 @@ export function isJSONObjectImpl(
   if (isPlainObject(value)) {
     for (const key in value) {
       const val = (value as JSONObject)[key];
+      if (val === undefined) {
+        continue;
+      }
       if (!isJSONValueImpl(val, maxDepth, depth + 1)) {
         return false;
       }

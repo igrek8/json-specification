@@ -6,11 +6,14 @@ import type { JSONObject } from "./JSONObject";
  * Deterministically converts a JavaScript value to a JSON string.
  */
 export function toJSONString(value: unknown, space?: number): string {
-  return JSON.stringify(value, toJSONValue, space);
+  if (value === undefined) return "null";
+  return JSON.stringify(value, replacer, space);
 }
 
-function toJSONValue(_: string, value: unknown) {
+function replacer(_: string, value: unknown) {
   switch (typeof value) {
+    case "undefined":
+      return value;
     case "boolean":
       return value;
     case "number":

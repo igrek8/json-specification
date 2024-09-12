@@ -4,12 +4,15 @@ import type { JSONIteratorItemPath } from "./JSONIteratorItemPath";
 import type { JSONValue } from "./JSONValue";
 
 function* iterateJSONIterableImpl(
-  value: JSONValue,
+  value: JSONValue | undefined,
   path: JSONIteratorItemPath[],
   maxDepth: number,
   depth: number
 ): IterableIterator<JSONIteratorItem> {
   if (depth >= maxDepth) {
+    if (value === undefined) {
+      return;
+    }
     yield new JSONIteratorItem(path, value);
     return;
   }

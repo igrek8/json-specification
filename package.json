@@ -1,6 +1,6 @@
 {
   "name": "json-specification",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "JSON types and validation",
   "license": "MIT",
   "main": "dist/index.js",

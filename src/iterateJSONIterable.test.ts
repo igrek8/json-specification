@@ -19,6 +19,7 @@ const tests: Test[] = [
   { actual: { a: { b: [1] } }, expected: [new JSONIteratorItem(["a", "b", 0], 1)] },
   { actual: { a: [[1]] }, maxDepth: 1, expected: [new JSONIteratorItem(["a"], [[1]])] },
   { actual: { a: { b: [1] } }, maxDepth: 1, expected: [new JSONIteratorItem(["a"], { b: [1] })] },
+  { actual: { a: undefined }, maxDepth: 1, expected: [] },
 ];
 
 test.each<Test>(tests)("iterateJSONValue($actual)", ({ actual, maxDepth, expected }) => {
