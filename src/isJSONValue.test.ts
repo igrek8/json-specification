@@ -3,6 +3,7 @@ import { isJSONValue } from "./isJSONValue";
 
 interface Test {
   actual: unknown;
+  maxDepth?: number;
   expected: boolean;
 }
 
@@ -26,8 +27,12 @@ const tests: Test[] = [
   { actual: NaN, expected: false },
   { actual: Infinity, expected: false },
   { actual: -Infinity, expected: false },
+  { actual: [10], maxDepth: 1, expected: true },
+  { actual: [10n], maxDepth: 1, expected: false },
+  { actual: [[10]], maxDepth: 1, expected: true },
+  { actual: [[10n]], maxDepth: 1, expected: true },
 ];
 
-test.each<Test>(tests)("isJSONValue($actual) === $expected", ({ actual, expected }) => {
-  expect(isJSONValue(actual)).toBe(expected);
+test.each<Test>(tests)("isJSONValue($actual) === $expected", ({ actual, maxDepth, expected }) => {
+  expect(isJSONValue(actual, maxDepth)).toBe(expected);
 });
